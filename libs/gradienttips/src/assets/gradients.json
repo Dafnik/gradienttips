@@ -1536,5 +1536,9 @@
   {
     "name": "DV",
     "colors": ["#FEAC5E", "#C779D0", "#4BC0C8"]
+  },
+  {
+    "name": "Moli",
+    "colors": ["#ffb35b", "#fbb98f"]
   }
 ]
