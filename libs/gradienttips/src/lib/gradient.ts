@@ -18,6 +18,6 @@ export function transform(): void {
       name: gradient.name,
       colors: gradient.colors
     })
-  };
+  }
   console.log(JSON.stringify(newgradients));
 }
