@@ -1544,5 +1544,9 @@
   {
     "name": "SaimRaza",
     "colors": ["#0F4E91", "#0F971C"]
+  },
+  {
+    "name": "RVRB",
+    "colors": ["#950B36", "#0D1527"]
   }
 ]
