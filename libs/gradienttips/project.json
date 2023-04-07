@@ -34,6 +34,12 @@
           "codeCoverage": true
         }
       }
+    },
+    "generate-ids": {
+      "executor": "@gradienttips/gradienttips:generate-ids"
+    },
+    "convert-old": {
+      "executor": "@gradienttips/gradienttips:convert-old"
     }
   },
   "tags": []

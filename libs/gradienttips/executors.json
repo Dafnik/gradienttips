@@ -1,0 +1,14 @@
+{
+  "executors": {
+    "generate-ids": {
+      "implementation": "./src/executors/generate-ids/executor",
+      "schema": "./src/executors/generate-ids/schema.json",
+      "description": "generate-ids executor"
+    },
+    "convert-old": {
+      "implementation": "./src/executors/convert-old/executor",
+      "schema": "./src/executors/convert-old/schema.json",
+      "description": "convert-old executor"
+    }
+  }
+}

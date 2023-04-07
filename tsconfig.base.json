@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "resolveJsonModule": true,
     "paths": {
-      "@gradienttips/gradienttips": ["libs/gradienttips/src/index.ts"],
+      "@gradienttips/gradienttips": ["libs/gradienttips/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
