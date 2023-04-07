@@ -1552,5 +1552,9 @@
   {
     "name": "Desert Sunset",
     "colors": ["#3C5A8B", "#91A2C1", "#E3D2CA", "#FFE9BC"]
+  },
+  {
+    "name": "Tollar",
+    "colors": ["#0602ff", "#02ffff"]
   }
 ]
