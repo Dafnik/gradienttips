@@ -1556,5 +1556,9 @@
   {
     "name": "Tollar",
     "colors": ["#0602ff", "#02ffff"]
+  },
+  {
+    "name": "India",
+    "colors": ["#ff8100", "#ffffff", "#11ff00" ]
   }
 ]
