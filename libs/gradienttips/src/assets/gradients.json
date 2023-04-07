@@ -1548,5 +1548,9 @@
   {
     "name": "RVRB",
     "colors": ["#950B36", "#0D1527"]
+  },
+  {
+    "name": "Desert Sunset",
+    "colors": ["#3C5A8B", "#91A2C1", "#E3D2CA", "#FFE9BC"]
   }
 ]
