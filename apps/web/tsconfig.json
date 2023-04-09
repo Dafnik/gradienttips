@@ -5,7 +5,7 @@
     "target": "ESNext",
     "module": "ESNext",
     // Enable node-style module resolution, for things like npm package imports
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     // Enable JSON imports
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output
@@ -21,6 +21,7 @@
     // Enable strict mode
     "strict": true,
     // Error when a value import is only used as a type
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "jsx": "react"
   }
 }

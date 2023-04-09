@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema",
   "version": 2,
   "cli": "nx",
-  "title": "GenerateIds executor",
+  "title": "Gradient type and id type generator",
   "description": "",
   "type": "object",
   "properties": {},

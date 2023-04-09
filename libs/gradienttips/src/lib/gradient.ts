@@ -1,12 +1,12 @@
-import * as jsonGradients from '../assets/gradients.json';
-import { gradientIds } from './gradientIds';
+import {gradientIds} from './gradientIds';
+import {gradients} from './gradients';
 
 export type gradientType = { id: string; name: string; colors: string[] };
 
 type transformerOptions = 'ALL' | 'FIRST_LAST' | 'START_END';
 
 export function getGradients(): gradientType[] {
-  return jsonGradients;
+  return gradients;
 }
 
 export function getGradient(id?: gradientIds) {

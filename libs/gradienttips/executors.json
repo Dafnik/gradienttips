@@ -1,9 +1,9 @@
 {
   "executors": {
-    "generate-ids": {
-      "implementation": "./src/executors/generate-ids/executor",
-      "schema": "./src/executors/generate-ids/schema.json",
-      "description": "generate-ids executor"
+    "generate-types": {
+      "implementation": "./src/executors/generate-types/executor",
+      "schema": "./src/executors/generate-types/schema.json",
+      "description": "Generate gradient types and id types"
     },
     "convert-old": {
       "implementation": "./src/executors/convert-old/executor",

@@ -35,8 +35,8 @@
         }
       }
     },
-    "generate-ids": {
-      "executor": "@gradienttips/gradienttips:generate-ids"
+    "generate-types": {
+      "executor": "@gradienttips/gradienttips:generate-types"
     },
     "convert-old": {
       "executor": "@gradienttips/gradienttips:convert-old"
