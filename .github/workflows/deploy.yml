@@ -20,11 +20,22 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
-      - name: Install, build, and upload your site
-        uses: withastro/action@v0
+
+      - name: setup node and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: build
+        run: pnpm exec nx build web
+
+      - uses: actions/upload-artifact@master
+        name: upload artifact
         with:
-          path: ./apps/web
-          node-version: 16
+          name: github-pages
+          path: ./dist/apps/web
+          retention-days: 1
 
   deploy:
     needs: build
