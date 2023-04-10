@@ -9,7 +9,7 @@
  * Note: this is only an issue when computing the project graph with the Nx Daemon
  * disabled (e.g. in CI environments).
  */
-const { readFileSync, writeFileSync } = require('fs');
+import { readFileSync, writeFileSync } from 'fs';
 
 try {
   const path = 'node_modules/nx/bin/nx.js';

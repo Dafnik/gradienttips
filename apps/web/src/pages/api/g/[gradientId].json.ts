@@ -6,8 +6,5 @@ export const get: APIRoute = ({ params, request }) => {
 };
 
 export function getStaticPaths() {
-  return [
-    { params: { id: '0' } },
-    getGradients().map((gradient) => ({ params: { gradientId: gradient.id } })),
-  ];
+  return getGradients().map((gradient) => ({ params: { gradientId: gradient.id } }));
 }
