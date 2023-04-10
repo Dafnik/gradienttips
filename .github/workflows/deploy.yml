@@ -30,12 +30,10 @@ jobs:
       - name: build
         run: pnpm exec nx build web
 
-      - uses: actions/upload-artifact@master
+      - uses: upload-pages-artifact@main
         name: upload artifact
         with:
-          name: github-pages
           path: ./dist/apps/web
-          retention-days: 1
 
   deploy:
     needs: build
