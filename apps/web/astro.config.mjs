@@ -5,5 +5,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   outDir: '../../dist/apps/web',
   integrations: [preact({ compat: true }), tailwind()],
-  site: 'https://dafnik.github.io'
+  site: 'https://dafnik.github.io',
+  base: '/gradienttips'
 });
