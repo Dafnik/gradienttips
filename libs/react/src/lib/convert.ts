@@ -1,4 +1,4 @@
-import { gradientDirection } from '@gradienttips/data';
+import { gradientDirection } from '@gradienttips/types';
 
 export function gradientColorsToBackgroundStyleProps(
   gradientColors: string[],

@@ -1,6 +1,6 @@
 import React from 'react';
-import { gradientDirection, gradientIds } from '@gradienttips/data';
 import Gradient from './Gradient';
+import { gradientDirection, gradientIds } from '@gradienttips/types';
 
 interface ReactProps {
   id: gradientIds;

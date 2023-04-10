@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
-import { getGradient, gradientDirection, gradientIds, gradientType } from '@gradienttips/data';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { gradientColorsToBackgroundStyleProps } from './convert';
+import { gradientDirection, gradientIds, gradientType } from '@gradienttips/types';
+import { getGradient } from '@gradienttips/client';
 
 interface ReactProps {
   id?: gradientIds;
@@ -25,14 +26,22 @@ export function Gradient({
   if (!colors && !id) {
     throw new Error('Set color or gradientId');
   }
-  const gradient = getGradient(id);
+
+  const [gradient, setGradient] = useState<gradientType>();
+
+  useEffect(() => {
+    if (id) {
+      getGradient(id).then((gradient) => setGradient(gradient))
+    }
+  }, [])
+
   return (
     <div
       style={{
         height: height ?? '',
         width: width ?? '',
         background: gradientColorsToBackgroundStyleProps(
-          colors ?? gradient.colors,
+          colors ?? gradient?.colors ?? [],
           direction
         ),
       }}
