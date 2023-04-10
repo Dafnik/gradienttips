@@ -4,5 +4,5 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   outDir: '../../dist/apps/web',
-  integrations: [preact(), tailwind()],
+  integrations: [preact({ compat: true }), tailwind()],
 });

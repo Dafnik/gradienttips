@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {GradientView} from '../../components/GradientView';
+import { getGradients, getGradient } from '@gradienttips/data';
+export function getStaticPaths() {
+  return getGradients().map((gradient) => ({params: {gradientId: gradient.id}}));
+}
+
+const { gradientId } = Astro.params;
+const gradient = getGradient(gradientId);
+---
+
+
+<Layout title="gradient.tips">
+  <GradientView gradient={gradient} client:load />
+</Layout>

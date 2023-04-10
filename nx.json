@@ -42,5 +42,15 @@
       }
     }
   },
-  "defaultProject": "web"
+  "defaultProject": "web",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      },
+      "library": {
+        "unitTestRunner": "vitest"
+      }
+    }
+  }
 }

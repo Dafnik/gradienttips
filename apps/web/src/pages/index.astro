@@ -3,12 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import {GradientList} from "../components/GradientList";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<GradientList />
-	</main>
+<Layout title="gradient.tips">
+	<GradientList client:load />
 </Layout>
 
-<style>
-
-</style>

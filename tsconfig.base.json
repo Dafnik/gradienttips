@@ -16,7 +16,11 @@
     "baseUrl": ".",
     "resolveJsonModule": true,
     "paths": {
-      "@gradienttips/gradienttips": ["libs/gradienttips/src/index.ts"]
+      "@gradienttips/client": ["libs/client/src/index.ts"],
+      "@gradienttips/common": ["libs/common/src/index.ts"],
+      "@gradienttips/data": ["libs/data/src/index.ts"],
+      "@gradienttips/react": ["libs/react/src/index.ts"],
+      "@gradienttips/types": ["libs/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
