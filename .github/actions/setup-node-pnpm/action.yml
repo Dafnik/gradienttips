@@ -15,12 +15,12 @@ runs:
   steps:
     - uses: pnpm/action-setup@v2
       with:
-        version: ${{ input.pnpm }}
+        version: ${{ inputs.pnpm }}
 
     - name: use Node.js 18
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ input.node }}
+        node-version: ${{ inputs.node }}
         cache: 'pnpm'
 
     - name: get pnpm store directory
