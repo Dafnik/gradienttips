@@ -117,17 +117,17 @@ export function GradientUsage({
               </pre>
               <pre data-prefix="5">
                 <code>
-                  {' '}
+                  {'   '}
                   {`<Gradient id='${gradient.id}' direction='${direction}'${
                     showRoundedExample ? ` className='rounded-md'` : ''
                   }>`}
                 </code>
               </pre>
               <pre data-prefix="6">
-                <code> ...</code>
+                <code> {'  ...'}</code>
               </pre>
               <pre data-prefix="7">
-                <code> {`</Gradient>`}</code>
+                <code>{`   </Gradient>`}</code>
               </pre>
               <pre data-prefix="8">
                 <code> );</code>
@@ -173,17 +173,17 @@ export function GradientUsage({
               </pre>
               <pre data-prefix="6">
                 <code>
-                  {' '}
+                  {'   '}
                   {`<div style={{background: gradientColorsToBackgroundStyleProps(gradient.colors, '${direction}')}}${
                     showRoundedExample ? ` className='rounded-md'` : ''
                   }>`}
                 </code>
               </pre>
               <pre data-prefix="7">
-                <code> ...</code>
+                <code>{'   ...'}</code>
               </pre>
               <pre data-prefix="8">
-                <code> {`</div>`}</code>
+                <code>{`   </div>`}</code>
               </pre>
               <pre data-prefix="9">
                 <code> );</code>
@@ -228,7 +228,7 @@ export function GradientUsage({
               </pre>
               <pre data-prefix="5">
                 <code>
-                  {' '}
+                  {'   '}
                   {`<ProfilePicture id='${
                     gradient.id
                   }' imageUrl='https://exampleUrl' direction='${direction}'${

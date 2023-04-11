@@ -29,8 +29,6 @@ export function GradientView({ gradient }: { gradient: gradientType }) {
             </div>
           </div>
 
-          <div class="divider my-0" />
-
           <GradientColorList colors={gradient.colors} />
 
           <div class="flex flex-col gap-2">
