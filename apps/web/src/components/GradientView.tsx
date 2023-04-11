@@ -9,12 +9,10 @@ export function GradientView({ gradient }: { gradient: gradientType }) {
   const [direction, setDirection] = useState<gradientDirection>('right');
 
   return (
-    <div class="flex flex-col items-center md:items-start md:flex-row gap-16">
+    <div class="flex flex-col items-center lg:items-start lg:flex-row gap-16">
       <Gradient
         id={gradient.id}
-        height="25rem"
-        width="25rem"
-        class="flex-none rounded-lg"
+        class="flex-none rounded-lg w-full h-96 md:w-96 "
         direction={direction}
       />
       <div class="col-span-2">

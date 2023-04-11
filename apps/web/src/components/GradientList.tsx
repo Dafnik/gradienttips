@@ -26,17 +26,17 @@ export function GradientList() {
   return (
     <>
       <input
-        type='text'
-        placeholder='Search here'
-        className='input input-ghost w-full focus:outline-none px-0 pb-2'
+        type="text"
+        placeholder="Search here"
+        className="input input-ghost w-full focus:outline-none px-0 pb-2"
         onChange={(event) => setSearch(event!.target!.value)}
       />
-      <div className='flex justify-between flex-wrap gap-4'>
+      <div className="flex justify-evenly md:justify-between flex-wrap gap-4">
         {gradients.map((gradient) => (
           <GradientBox key={gradient.id} gradient={gradient} />
         ))}
         {gradients.length < 1 && (
-          <span className='text-center w-full mt-10'>No gradient found</span>
+          <span className="text-center w-full mt-10">No gradient found</span>
         )}
       </div>
     </>
@@ -46,12 +46,14 @@ export function GradientList() {
 export function GradientBox({ gradient }: { gradient: gradientType }) {
   const isLight = isHexColorLight(averageHexColors(gradient.colors));
   return (
-    <a href={`/g/${gradient.id}`}>
+    <a
+      href={`/g/${gradient.id}`}
+      className="w-full sm:w-4/12 md:w-3/12 xl:w-2/12"
+    >
       <Gradient
-        className='rounded-md flex flex-col-reverse'
+        className="rounded-md flex flex-col-reverse w-full"
         colors={gradient.colors}
-        height='15rem'
-        width='15rem'
+        height="15rem"
       >
         <span
           className={`text-center w-full ${

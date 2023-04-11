@@ -43,10 +43,11 @@ export function GradientUsage({
           Angular
         </a>
       </div>
+
       {selectedTab === 'CSS' && (
         <div className="flex flex-col gap-2">
           <div
-            className="mockup-code max-w-sm md:max-w-5xl w-full"
+            className="mockup-code max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl"
             id="css-code"
           >
             <pre>
@@ -99,7 +100,7 @@ export function GradientUsage({
           <div className="flex flex-col gap-2">
             <span className="text-xl">Component usage</span>
             <div
-              className="mockup-code max-w-sm md:max-w-5xl w-full"
+              className="mockup-code max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl"
               id="react-code"
             >
               <pre data-prefix="1">
@@ -152,7 +153,7 @@ export function GradientUsage({
           <div className="flex flex-col gap-2">
             <span className="text-xl">Background style usage</span>
             <div
-              className="mockup-code max-w-sm md:max-w-5xl w-full"
+              className="mockup-code max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl"
               id="react-code-2"
             >
               <pre data-prefix="1">
@@ -207,7 +208,7 @@ export function GradientUsage({
           <div className="flex flex-col gap-2">
             <span className="text-xl">Profile picture usage</span>
             <div
-              className="mockup-code max-w-sm md:max-w-5xl w-full"
+              className="mockup-code max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl"
               id="react-code-2"
             >
               <pre data-prefix="1">

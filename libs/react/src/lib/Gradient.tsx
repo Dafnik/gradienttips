@@ -31,9 +31,9 @@ export function Gradient({
 
   useEffect(() => {
     if (id) {
-      getGradient(id).then((gradient) => setGradient(gradient))
+      getGradient(id).then((gradient) => setGradient(gradient));
     }
-  }, [])
+  }, []);
 
   return (
     <div
