@@ -9,7 +9,7 @@ export function GradientUsage({
   gradient: gradientType;
   direction: gradientDirection;
 }) {
-  const [selectedTab, setSelectedTab] = useState<'CSS' | 'REACT' | 'ANGULAR'>(
+  const [selectedTab, setSelectedTab] = useState<'CSS' | 'REACT' | 'ANGULAR' | 'API'>(
     'CSS'
   );
 
@@ -25,6 +25,14 @@ export function GradientUsage({
           onClick={() => setSelectedTab('CSS')}
         >
           CSS
+        </a>
+        <a
+          className={`tab tab-lg tab-lifted ${
+            selectedTab === 'API' ? 'tab-active' : ''
+          }`}
+          onClick={() => setSelectedTab('API')}
+        >
+         API
         </a>
         <a
           className={`tab tab-lg tab-lifted ${
@@ -67,6 +75,33 @@ export function GradientUsage({
                 background: linear-gradient(to {direction},{' '}
                 {gradient.colors.join(', ')}); /* W3C, IE 10+/ Edge, Firefox
                 16+, Chrome 26+, Opera 12+, Safari 7+ */
+              </code>
+            </pre>
+          </div>
+          <div>
+            <button
+              className="btn btn-sm"
+              onClick={() =>
+                void navigator.clipboard.writeText(
+                  document.querySelector('#css-code')!.textContent!
+                )
+              }
+            >
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+      )}
+      {selectedTab === 'API' && (
+        <div className="flex flex-col gap-2">
+          <div
+            className="mockup-code max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl"
+            id="api-code"
+          >
+            <pre>
+              <code>
+                background: {gradient.colors[0]}; /* fallback for old browsers
+                */
               </code>
             </pre>
           </div>
