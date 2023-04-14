@@ -1,9 +1,10 @@
-import React, { useMemo } from 'preact/compat';
-import { getGradients } from '@gradienttips/data';
-import { useState } from 'preact/hooks';
-import { averageHexColors, isHexColorLight } from '@gradienttips/common';
-import { Gradient } from '@gradienttips/react';
-import type { gradientType } from '@gradienttips/types';
+import React, {useMemo} from 'preact/compat';
+import {getGradients} from '@gradienttips/data';
+import {useState} from 'preact/hooks';
+import {averageHexColors, isHexColorLight} from '@gradienttips/common';
+import {Gradient} from '@gradienttips/react';
+import type {gradientType} from '@gradienttips/types';
+import './gradientbox.css';
 
 export function GradientList() {
   const [search, setSearch] = useState('');
@@ -33,7 +34,7 @@ export function GradientList() {
       />
       <div className="flex justify-evenly md:justify-between flex-wrap gap-4">
         {gradients.map((gradient) => (
-          <GradientBox key={gradient.id} gradient={gradient} />
+          <GradientBox key={gradient.id} gradient={gradient} isSearching={search.length > 0}/>
         ))}
         {gradients.length < 1 && (
           <span className="text-center w-full mt-10">No gradient found</span>
@@ -43,8 +44,10 @@ export function GradientList() {
   );
 }
 
-export function GradientBox({ gradient }: { gradient: gradientType }) {
+export function GradientBox({gradient, isSearching}: { gradient: gradientType, isSearching: boolean }) {
   const isLight = isHexColorLight(averageHexColors(gradient.colors));
+
+
   return (
     <a
       href={`/g/${gradient.id}`}
@@ -55,13 +58,19 @@ export function GradientBox({ gradient }: { gradient: gradientType }) {
         colors={gradient.colors}
         height="15rem"
       >
-        <span
-          className={`text-center w-full ${
-            isLight ? 'text-black' : 'text-white'
-          }`}
-        >
+        <>
+          <div
+            className={`${!isSearching ? 'overlay' : ''} bg-base-200 rounded-b-md px-4 py-1 gap-x-2 flex-wrap`}>{gradient.colors.map((color, index) =>
+            <span className='flex gap-2'><span>{color}</span>{index < gradient.colors.length - 1 ?
+              <span>{' >'}</span> : null}</span>)}</div>
+          <span
+            className={`text-center w-full mb-1 ${
+              isLight ? 'text-black' : 'text-white'
+            }`}
+          >
           {gradient.name}
         </span>
+        </>
       </Gradient>
     </a>
   );
