@@ -4,11 +4,14 @@ import { gradientDirection, gradientIds, gradientType } from '@gradienttips/type
 import { getGradient } from '@gradienttips/client';
 
 interface ReactProps {
-  id?: gradientIds;
-  colors?: string[];
-  direction?: gradientDirection;
-  height?: string;
-  width?: string;
+  id?: gradientIds | null;
+  colors?: string[] | null;
+  direction?: gradientDirection | null;
+  height?: string | null;
+  width?: string | null;
+  style?: {
+    [x: string]: any;
+  }
   children?: ReactNode;
 
   [x: string]: any;
@@ -20,6 +23,7 @@ export function Gradient({
   direction,
   width,
   height,
+  style,
   children,
   ...rest
 }: ReactProps) {
@@ -33,17 +37,18 @@ export function Gradient({
     if (id) {
       getGradient(id).then((gradient) => setGradient(gradient));
     }
-  }, []);
+  }, [id]);
 
   return (
     <div
       style={{
-        height: height ?? '',
-        width: width ?? '',
+        height: height ?? style?.height ?? '',
+        width: width ?? style?.width ?? '',
         background: gradientColorsToBackgroundStyleProps(
           colors ?? gradient?.colors ?? [],
           direction
         ),
+        ...style
       }}
       {...rest}
     >
