@@ -1,22 +1,45 @@
-import React, {useMemo} from 'preact/compat';
-import {getGradients} from '@gradienttips/data';
-import {useState} from 'preact/hooks';
-import {averageHexColors, isHexColorLight} from '@gradienttips/common';
-import {Gradient} from '@gradienttips/react';
-import type {gradientType} from '@gradienttips/types';
+import React, { useMemo } from 'preact/compat';
+import { getGradients } from '@gradienttips/data';
+import { useState } from 'preact/hooks';
+import { averageHexColors, isHexColorLight } from '@gradienttips/common';
+import { Gradient } from '@gradienttips/react';
 import './gradientbox.css';
+// @ts-ignore
+import * as ntc from './ntc.js';
+
+const pureGradients = getGradients().map((g) => {
+  const averageHexColor = averageHexColors(g.colors);
+  const averageHexColorNtc = ntc.ntc.name(averageHexColor);
+  const gradient = {
+    ...g,
+    color: averageHexColor,
+    isLight: isHexColorLight(averageHexColor),
+    colorName: averageHexColorNtc[1] as string,
+    colorShade: averageHexColorNtc[3] as string,
+    colors: g.colors.map((color) => {
+      const colorNtc = ntc.ntc.name(color);
+      return {
+        color: color,
+        colorName: colorNtc[1] as string,
+        colorShade: colorNtc[3] as string,
+      }
+    })
+  };
+  return gradient;
+})
 
 export function GradientList() {
   const [search, setSearch] = useState('');
 
   const gradients = useMemo(() => {
-    return getGradients().filter((gradient) => {
-      if (gradient.id.includes(search) || gradient.name.includes(search)) {
+    return pureGradients.filter((gradient) => {
+      const lSearch = search.trim().toLowerCase();
+      if (gradient.id.trim().toLowerCase().includes(lSearch) || gradient.name.trim().toLowerCase().includes(lSearch) || gradient.colorName.trim().toLowerCase().includes(lSearch) || gradient.colorShade.trim().toLowerCase().includes(lSearch)) {
         return true;
       }
 
       for (const color of gradient.colors) {
-        if (color.includes(search)) {
+        if (color.color.includes(lSearch) || color.colorShade.trim().toLowerCase().includes(lSearch) || color.colorName.trim().toLowerCase().includes(lSearch)) {
           return true;
         }
       }
@@ -44,10 +67,7 @@ export function GradientList() {
   );
 }
 
-export function GradientBox({gradient, isSearching}: { gradient: gradientType, isSearching: boolean }) {
-  const isLight = isHexColorLight(averageHexColors(gradient.colors));
-
-
+export function GradientBox({gradient, isSearching}: { gradient: typeof pureGradients[0], isSearching: boolean }) {
   return (
     <a
       href={`/g/${gradient.id}`}
@@ -55,17 +75,17 @@ export function GradientBox({gradient, isSearching}: { gradient: gradientType, i
     >
       <Gradient
         className="rounded-md flex flex-col-reverse w-full"
-        colors={gradient.colors}
+        colors={gradient.colors.map((colors) => colors.color)}
         height="15rem"
       >
         <>
           <div
             className={`${!isSearching ? 'overlay' : ''} bg-base-200 rounded-b-md px-4 py-1 gap-x-2 flex-wrap`}>{gradient.colors.map((color, index) =>
-            <span className='flex gap-2'><span>{color}</span>{index < gradient.colors.length - 1 ?
+            <span className='flex gap-2'><span>{color.color}</span>{index < gradient.colors.length - 1 ?
               <span>{' >'}</span> : null}</span>)}</div>
           <span
             className={`text-center w-full mb-1 ${
-              isLight ? 'text-black' : 'text-white'
+              gradient.isLight ? 'text-black' : 'text-white'
             }`}
           >
           {gradient.name}

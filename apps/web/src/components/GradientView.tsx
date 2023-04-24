@@ -17,7 +17,7 @@ export function GradientView({ gradient }: { gradient: gradientType }) {
       />
       <div class="col-span-2">
         <div class="flex flex-col gap-5">
-          <div class="flex items-end text-4xl gap-4">
+          <div class="flex flex-col md:flex-row items-start md:items-end text-4xl gap-4">
             <div>{gradient.name}</div>
             <div class="tooltip tooltip-right text-xl" data-tip="Copy id">
               <button

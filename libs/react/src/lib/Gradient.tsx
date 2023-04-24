@@ -1,9 +1,9 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { gradientColorsToBackgroundStyleProps } from './convert';
 import { gradientDirection, gradientIds, gradientType } from '@gradienttips/types';
 import { getGradient } from '@gradienttips/client';
 
-interface ReactProps {
+interface GradientProps {
   id?: gradientIds | null;
   colors?: string[] | null;
   direction?: gradientDirection | null;
@@ -12,7 +12,6 @@ interface ReactProps {
   style?: {
     [x: string]: any;
   }
-  children?: ReactNode;
 
   [x: string]: any;
 }
@@ -26,7 +25,7 @@ export function Gradient({
   style,
   children,
   ...rest
-}: ReactProps) {
+}: PropsWithChildren<GradientProps>) {
   if (!colors && !id) {
     throw new Error('Set color or gradientId');
   }
