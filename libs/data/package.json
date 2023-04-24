@@ -1,6 +1,9 @@
 {
   "name": "@gradienttips/data",
   "version": "0.0.1",
-  "type": "commonjs",
-  "executors": "executors.json"
+  "type": "module",
+  "executors": "executors.json",
+  "dependencies": {
+    "@gradienttips/types": "*"
+  }
 }

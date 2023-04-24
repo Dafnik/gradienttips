@@ -8,5 +8,9 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
+  },
+  "dependencies": {
+    "@gradienttips/client": "*",
+    "@gradienttips/types": "*"
   }
 }

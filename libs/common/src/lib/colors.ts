@@ -14,9 +14,9 @@ export function isHexColorLight(color: string): boolean {
  */
 export function averageHexColors(colors: string[]): string {
   // transform all hex codes to integer arrays, e.g. [[R, G, B], [R,G,B], ...]
-  let numbers = colors.map(function (hex) {
+  const numbers = colors.map(function (hex) {
     // split in seperate R, G and B
-    let split = hex.match(/[\da-z]{2}/gi)!;
+    const split = hex.match(/[\da-z]{2}/gi)!;
 
     // transform to integer values
     return split.map(function (toInt) {
@@ -25,11 +25,11 @@ export function averageHexColors(colors: string[]): string {
   });
 
   // reduce the array by averaging all values, resulting in an average [R, G, B]
-  let averages = numbers.reduce((total, amount, index, array) => {
+  const averages = numbers.reduce((total, amount, index, array) => {
     return total.map(function (subtotal, subindex) {
       // if we reached the last color, average it out and return the hex value
       if (index == array.length - 1) {
-        let result = Math.round(
+        const result = Math.round(
           (subtotal + amount[subindex]) / array.length
         ).toString(16);
 

@@ -1,8 +1,6 @@
 import { gradients } from './gradients';
 import { gradientIds, gradientType } from '@gradienttips/types';
 
-type transformerOptions = 'ALL' | 'FIRST_LAST' | 'START_END';
-
 export function getGradients(): gradientType[] {
   return gradients;
 }
@@ -24,37 +22,4 @@ export function getGradient(id?: gradientIds) {
   }
 
   return gradient;
-}
-
-export function transformGradientColors(
-  gradient: {
-    colors: string[];
-  },
-  colorTransformer?: transformerOptions
-): string[];
-export function transformGradientColors(
-  gradient: { colors: string[] },
-  colorTransformer: 'START_END'
-): {
-  start: string;
-  end: string;
-};
-export function transformGradientColors(
-  gradient: { colors: string[] },
-  colorTransformer?: transformerOptions
-) {
-  switch (colorTransformer) {
-    case 'FIRST_LAST':
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return [gradient.colors.shift()!, gradient.colors.pop()!];
-    case 'START_END':
-      return {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        start: gradient.colors.shift()!,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        end: gradient.colors.pop()!,
-      };
-    default:
-      return gradient.colors;
-  }
 }

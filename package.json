@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "hook:pre-commit": "lint-staged",
-    "hook:commit-msg": "npx --no-install commitlint --edit \"$1\"",
+    "hook:commit-msg": "npx --no -- commitlint --edit \"$1\"",
     "prettify": "prettier --write .",
     "postinstall": "node ./tools/scripts/patch-nx-cli.js",
     "start": "nx dev web"
