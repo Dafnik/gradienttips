@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "resolveJsonModule": true,
     "paths": {
+      "@gradienttips/angular": ["libs/angular/src/index.ts"],
       "@gradienttips/client": ["libs/client/src/index.ts"],
       "@gradienttips/common": ["libs/common/src/index.ts"],
       "@gradienttips/data": ["libs/data/src/index.ts"],
