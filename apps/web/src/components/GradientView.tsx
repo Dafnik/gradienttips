@@ -11,7 +11,7 @@ export function GradientView({ gradient }: { gradient: gradientType }) {
   return (
     <div class="flex flex-col items-center lg:items-start lg:flex-row gap-16">
       <Gradient
-        id={gradient.id}
+        colors={gradient.colors}
         class="flex-none rounded-lg w-full h-96 md:w-96 "
         direction={direction}
       />
