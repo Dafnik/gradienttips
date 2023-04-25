@@ -9,6 +9,7 @@
           "error",
           {
             "type": "attribute",
+            "prefix": "gradienttips",
             "style": "camelCase"
           }
         ],
@@ -16,6 +17,7 @@
           "error",
           {
             "type": "element",
+            "prefix": "gradienttips",
             "style": "kebab-case"
           }
         ]
