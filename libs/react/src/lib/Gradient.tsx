@@ -1,7 +1,6 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import { gradientColorsToBackgroundStyleProps } from './convert';
 import { gradientDirection, gradientIds, gradientType } from '@gradienttips/types';
-import { getGradient } from '@gradienttips/client';
+import { getGradient, gradientColorsToBackgroundStyleProps } from '@gradienttips/client';
 
 interface GradientProps {
   id?: gradientIds | null;

@@ -193,7 +193,7 @@ export function ReactUsage({ gradient, direction }: { gradient: gradientType, di
           id='react-code-2'
         >
               <pre data-prefix='1'>
-                <code>{`import { gradientColorsToBackgroundStyleProps } from '@gradienttips/react';`}</code>
+                <code>{`import { gradientColorsToBackgroundStyleProps } from '@gradienttips/client';`}</code>
               </pre>
           <pre data-prefix='2'>
                 <code></code>
