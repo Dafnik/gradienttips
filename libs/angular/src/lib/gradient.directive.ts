@@ -5,18 +5,19 @@ import { from, Subject, takeUntil } from 'rxjs';
 
 @Directive({
   selector: '[gradient]',
-  standalone: true
+  standalone: true,
 })
 export class GradientDirective implements OnDestroy {
   @Input() set id(it: gradientIds | null) {
     if (it) {
-      from(getGradient(it)).pipe(takeUntil(this.onDestroy)).subscribe((gradient) => {
-        this._colors = gradient.colors;
-        this.setBackground();
-      })
+      from(getGradient(it))
+        .pipe(takeUntil(this.onDestroy))
+        .subscribe((gradient) => {
+          this._colors = gradient.colors;
+          this.setBackground();
+        });
     }
   }
-
 
   @Input() set colors(it: string[] | null) {
     if (it) {
@@ -34,7 +35,6 @@ export class GradientDirective implements OnDestroy {
 
   _direction?: gradientDirection | null;
 
-
   nativeElement = inject(ElementRef<HTMLElement>).nativeElement;
 
   onDestroy = new Subject<boolean>();
@@ -44,7 +44,10 @@ export class GradientDirective implements OnDestroy {
       throw new Error('Id or colors need to be set');
     }
 
-    this.nativeElement.style.background = gradientColorsToBackgroundStyleProps(this._colors, this._direction);
+    this.nativeElement.style.background = gradientColorsToBackgroundStyleProps(
+      this._colors,
+      this._direction
+    );
   }
 
   ngOnDestroy() {

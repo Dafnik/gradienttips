@@ -3,6 +3,6 @@ import { GradientDirective } from './gradient.directive';
 
 @NgModule({
   imports: [GradientDirective],
-  exports: [GradientDirective]
+  exports: [GradientDirective],
 })
 export class GradientModule {}

@@ -22,11 +22,11 @@ const pureGradients = getGradients().map((g) => {
         color: color,
         colorName: colorNtc[1] as string,
         colorShade: colorNtc[3] as string,
-      }
-    })
+      };
+    }),
   };
   return gradient;
-})
+});
 
 export function GradientList() {
   const [search, setSearch] = useState('');
@@ -34,12 +34,21 @@ export function GradientList() {
   const gradients = useMemo(() => {
     return pureGradients.filter((gradient) => {
       const lSearch = search.trim().toLowerCase();
-      if (gradient.id.trim().toLowerCase().includes(lSearch) || gradient.name.trim().toLowerCase().includes(lSearch) || gradient.colorName.trim().toLowerCase().includes(lSearch) || gradient.colorShade.trim().toLowerCase().includes(lSearch)) {
+      if (
+        gradient.id.trim().toLowerCase().includes(lSearch) ||
+        gradient.name.trim().toLowerCase().includes(lSearch) ||
+        gradient.colorName.trim().toLowerCase().includes(lSearch) ||
+        gradient.colorShade.trim().toLowerCase().includes(lSearch)
+      ) {
         return true;
       }
 
       for (const color of gradient.colors) {
-        if (color.color.includes(lSearch) || color.colorShade.trim().toLowerCase().includes(lSearch) || color.colorName.trim().toLowerCase().includes(lSearch)) {
+        if (
+          color.color.includes(lSearch) ||
+          color.colorShade.trim().toLowerCase().includes(lSearch) ||
+          color.colorName.trim().toLowerCase().includes(lSearch)
+        ) {
           return true;
         }
       }
@@ -57,7 +66,11 @@ export function GradientList() {
       />
       <div className="flex justify-evenly md:justify-between flex-wrap gap-4">
         {gradients.map((gradient) => (
-          <GradientBox key={gradient.id} gradient={gradient} isSearching={search.length > 0}/>
+          <GradientBox
+            key={gradient.id}
+            gradient={gradient}
+            isSearching={search.length > 0}
+          />
         ))}
         {gradients.length < 1 && (
           <span className="text-center w-full mt-10">No gradient found</span>
@@ -67,7 +80,13 @@ export function GradientList() {
   );
 }
 
-export function GradientBox({gradient, isSearching}: { gradient: typeof pureGradients[0], isSearching: boolean }) {
+export function GradientBox({
+  gradient,
+  isSearching,
+}: {
+  gradient: (typeof pureGradients)[0];
+  isSearching: boolean;
+}) {
   return (
     <a
       href={`/g/${gradient.id}`}
@@ -80,16 +99,26 @@ export function GradientBox({gradient, isSearching}: { gradient: typeof pureGrad
       >
         <>
           <div
-            className={`${!isSearching ? 'overlay' : ''} bg-base-200 rounded-b-md px-4 py-1 gap-x-2 flex-wrap`}>{gradient.colors.map((color, index) =>
-            <span className='flex gap-2'><span>{color.color}</span>{index < gradient.colors.length - 1 ?
-              <span>{' >'}</span> : null}</span>)}</div>
+            className={`${
+              !isSearching ? 'overlay' : ''
+            } bg-base-200 rounded-b-md px-4 py-1 gap-x-2 flex-wrap`}
+          >
+            {gradient.colors.map((color, index) => (
+              <span className="flex gap-2">
+                <span>{color.color}</span>
+                {index < gradient.colors.length - 1 ? (
+                  <span>{' >'}</span>
+                ) : null}
+              </span>
+            ))}
+          </div>
           <span
             className={`text-center w-full mb-1 ${
               gradient.isLight ? 'text-black' : 'text-white'
             }`}
           >
-          {gradient.name}
-        </span>
+            {gradient.name}
+          </span>
         </>
       </Gradient>
     </a>

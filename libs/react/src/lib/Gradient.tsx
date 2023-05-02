@@ -10,7 +10,7 @@ interface GradientProps {
   width?: string | null;
   style?: {
     [x: string]: any;
-  }
+  };
 
   [x: string]: any;
 }
@@ -46,7 +46,7 @@ export function Gradient({
           colors ?? gradient?.colors ?? [],
           direction
         ),
-        ...style
+        ...style,
       }}
       {...rest}
     >

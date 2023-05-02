@@ -3,7 +3,7 @@ import { GradientDirective } from './gradient.directive';
 
 @Directive({
   selector: '[gradientProfilePicture]',
-  standalone: true
+  standalone: true,
 })
 export class GradientProfilePictureDirective extends GradientDirective {
   @Input() set show(it: boolean | 'true' | 'false') {

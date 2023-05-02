@@ -3,6 +3,6 @@ import { GradientProfilePictureDirective } from './gradient-profile-picture.dire
 
 @NgModule({
   imports: [GradientProfilePictureDirective],
-  exports: [GradientProfilePictureDirective]
+  exports: [GradientProfilePictureDirective],
 })
 export class GradientProfilePictureModule {}

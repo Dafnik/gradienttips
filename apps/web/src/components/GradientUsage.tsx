@@ -7,11 +7,10 @@ import { CSSUsage } from './Usage/CSSUsage';
 
 type tabs = 'CSS' | 'REACT' | 'ANGULAR' | 'API';
 
-
 export function GradientUsage({
-                                gradient,
-                                direction
-                              }: {
+  gradient,
+  direction,
+}: {
   gradient: gradientType;
   direction: gradientDirection;
 }) {
@@ -36,10 +35,9 @@ export function GradientUsage({
     }
   }, []);
 
-
   return (
-    <div className='flex flex-col gap-2 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl'>
-      <div className='tabs'>
+    <div className="flex flex-col gap-2 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl">
+      <div className="tabs">
         <a
           className={`tab tab-lg tab-lifted ${
             selectedTab === 'CSS' ? 'tab-active' : ''
@@ -77,16 +75,12 @@ export function GradientUsage({
       {selectedTab === 'CSS' && (
         <CSSUsage gradient={gradient} direction={direction} />
       )}
-      {selectedTab === 'API' && (
-        <ApiUsage gradient={gradient} />
-      )}
+      {selectedTab === 'API' && <ApiUsage gradient={gradient} />}
       {selectedTab === 'REACT' && (
         <ReactUsage gradient={gradient} direction={direction} />
       )}
       {selectedTab === 'ANGULAR' && (
-        <div className='flex flex-col gap-8'>
-          Coming soon...
-        </div>
+        <div className="flex flex-col gap-8">Coming soon...</div>
       )}
     </div>
   );
