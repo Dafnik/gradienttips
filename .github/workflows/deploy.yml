@@ -35,7 +35,7 @@ jobs:
         run: pnpm exec nx build web
 
       - name: upload artifact
-        uses: actions/upload-pages-artifact@v1.0.8
+        uses: actions/upload-pages-artifact@v2.0.0
         with:
           path: ./dist/apps/web
 
@@ -48,4 +48,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
